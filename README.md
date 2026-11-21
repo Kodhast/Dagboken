@@ -264,6 +264,7 @@ Versionen och raden nedan höjs och skrivs i funktions-PR:en; releasen görs via
 
 | Version | Innehåll |
 |---|---|
+| 4.23.3 | **android-ui 3.12.0**: tidsväljarens rullhjul visar talen i appens typsnitt med tabulära siffror och i storlekar som får plats (45 sp i mitten, 32 sp ovanför och under), och rubriken "Välj tid" har samma stil som övriga dialoger. Inga beteendeändringar. android-ui 3.11.1 → 3.12.0. |
 | 4.23.2 | **android-ui 3.11.1**: mildare oskärpa under sidhuvudet (8 dp som tonar ut över 24 dp i stället för 16 dp över 32 dp), så raden under sidhuvudet går att läsa. Inga beteendeändringar. android-ui 3.11.0 → 3.11.1. |
 | 4.23.1 | **android-ui 3.11.0**: menyer, dialoger och väljare får kant och tonad skugga som snackbaren; dialogerna blir 56 dp smalare. Inga beteendeändringar. android-ui 3.10.0 → 3.11.0. |
 | 4.23.0 | **Segmentval efter textens bredd** (android-ui #98): Profilens kön (Kvinna · Man · Ej angivet) väljs med segmentval i stället för chips, och receptets upprepning (Varje dag · Veckodagar · Var X:e dag) får segment efter textens bredd, så att det valda inte klipps på telefonen (HLS-11, REC-2). android-ui 3.9.0 → 3.10.0. |
