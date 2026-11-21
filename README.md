@@ -264,6 +264,7 @@ Versionen och raden nedan höjs och skrivs i funktions-PR:en; releasen görs via
 
 | Version | Innehåll |
 |---|---|
+| 4.23.2 | **android-ui 3.11.1**: mildare oskärpa under sidhuvudet (8 dp som tonar ut över 24 dp i stället för 16 dp över 32 dp), så raden under sidhuvudet går att läsa. Inga beteendeändringar. android-ui 3.11.0 → 3.11.1. |
 | 4.23.1 | **android-ui 3.11.0**: menyer, dialoger och väljare får kant och tonad skugga som snackbaren; dialogerna blir 56 dp smalare. Inga beteendeändringar. android-ui 3.10.0 → 3.11.0. |
 | 4.23.0 | **Segmentval efter textens bredd** (android-ui #98): Profilens kön (Kvinna · Man · Ej angivet) väljs med segmentval i stället för chips, och receptets upprepning (Varje dag · Veckodagar · Var X:e dag) får segment efter textens bredd, så att det valda inte klipps på telefonen (HLS-11, REC-2). android-ui 3.9.0 → 3.10.0. |
 | 4.22.0 | **Samma radering överallt** (android-ui #118): en vid behov-, extra- eller engångsdos på Idag raderas också med svep åt vänster – raden fjädrar tillbaka och samma dialog som menyns Radera frågar (NFR-17, MED-3). android-ui 3.8.0 → 3.9.0. |
