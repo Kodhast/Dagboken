@@ -264,6 +264,7 @@ Versionen och raden nedan höjs och skrivs i funktions-PR:en; releasen görs via
 
 | Version | Innehåll |
 |---|---|
+| 4.24.0 | **Ny version finns** (NAV-13): en prick efter versionen i sidhuvudet när en nyare release finns, "Ny version X finns" under Om i kontomenyn och Hämta i Om. android-ui 3.12.0 → 3.14.0 (3.13.0: `SwipeToDelete` med frågan inbyggd, inget synligt ändrat). |
 | 4.23.3 | **android-ui 3.12.0**: tidsväljarens rullhjul visar talen i appens typsnitt med tabulära siffror och i storlekar som får plats (45 sp i mitten, 32 sp ovanför och under), och rubriken "Välj tid" har samma stil som övriga dialoger. Inga beteendeändringar. android-ui 3.11.1 → 3.12.0. |
 | 4.23.2 | **android-ui 3.11.1**: mildare oskärpa under sidhuvudet (8 dp som tonar ut över 24 dp i stället för 16 dp över 32 dp), så raden under sidhuvudet går att läsa. Inga beteendeändringar. android-ui 3.11.0 → 3.11.1. |
 | 4.23.1 | **android-ui 3.11.0**: menyer, dialoger och väljare får kant och tonad skugga som snackbaren; dialogerna blir 56 dp smalare. Inga beteendeändringar. android-ui 3.10.0 → 3.11.0. |

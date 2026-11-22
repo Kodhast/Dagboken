@@ -1,6 +1,7 @@
 package se.kodhast.dagboken.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -46,6 +47,10 @@ import se.kodhast.dagboken.ui.settings.ThemeRoute
 import se.kodhast.dagboken.ui.sync.SyncViewModel
 import se.kodhast.dagboken.ui.today.TodayRoute
 import se.kodhast.dagboken.ui.trends.TrendsRoute
+import se.kodhast.ui.common.UpdateChecker
+import se.kodhast.ui.components.AppUpdateNotice
+import se.kodhast.ui.components.LocalAppUpdate
+import se.kodhast.ui.components.rememberAppUpdate
 
 /**
  * Appens innehåll efter inloggning: fyra flikar med egna back stackar (NAV-8, NAV-11), synkläget
@@ -66,27 +71,33 @@ fun AppNavigation(
     val sync by syncViewModel.state.collectAsStateWithLifecycle()
     val backStack = rememberAppBackStack()
     val entries = remember(backStack) { appEntries(backStack, onScreening = logViewModel::onEvent) }
-    AppNavHost(
-        backStack,
-        entries,
-        modifier,
-        sync = sync,
-        onSyncEvent = syncViewModel::onEvent,
-        onLog = { choice -> backStack.log(choice, logViewModel.logDay(onToday = backStack.currentTab == TodayKey), logViewModel::onEvent) },
-        // Samma lambda tills kontot eller anslutningen ändras, så att flikarnas sidhuvud inte ritas om i onödan.
-        account = remember(account, sync.online, onSignOut) {
-            {
-                UserMenu(
-                    account,
-                    onOpenSettings = { backStack.push(SettingsKey) },
-                    onOpenAbout = { backStack.push(AboutKey) },
-                    onSignOut = onSignOut,
-                    online = sync.online,
-                    onOpenGallery = if (BuildConfig.DEBUG) ({ backStack.push(ComponentGalleryKey) }) else null
-                )
+    // Ny version (NAV-13): releasebygget frågar GitHub; pricken i sidhuvudet och Om-raden öppnar Om, där Hämta finns.
+    val checker = remember { if (BuildConfig.DEBUG) null else UpdateChecker("Kodhast", "Dagboken", BuildConfig.VERSION_NAME) }
+    val update by rememberAppUpdate(checker)
+    val notice = remember(update, backStack) { update?.let { AppUpdateNotice(it) { backStack.push(AboutKey) } } }
+    CompositionLocalProvider(LocalAppUpdate provides notice) {
+        AppNavHost(
+            backStack,
+            entries,
+            modifier,
+            sync = sync,
+            onSyncEvent = syncViewModel::onEvent,
+            onLog = { choice -> backStack.log(choice, logViewModel.logDay(onToday = backStack.currentTab == TodayKey), logViewModel::onEvent) },
+            // Samma lambda tills kontot eller anslutningen ändras, så att flikarnas sidhuvud inte ritas om i onödan.
+            account = remember(account, sync.online, onSignOut) {
+                {
+                    UserMenu(
+                        account,
+                        onOpenSettings = { backStack.push(SettingsKey) },
+                        onOpenAbout = { backStack.push(AboutKey) },
+                        onSignOut = onSignOut,
+                        online = sync.online,
+                        onOpenGallery = if (BuildConfig.DEBUG) ({ backStack.push(ComponentGalleryKey) }) else null
+                    )
+                }
             }
-        }
-    )
+        )
+    }
     LogSheets(logViewModel, onOpen = { target -> backStack.push(target.key) })
     val launchHandled by rememberUpdatedState(onLaunchHandled)
     LaunchedEffect(launch) {
