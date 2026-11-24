@@ -40,6 +40,7 @@ import se.kodhast.ui.components.AppCard
 import se.kodhast.ui.components.AppMenu
 import se.kodhast.ui.components.AppMenuItem
 import se.kodhast.ui.components.AppSnackbarHost
+import se.kodhast.ui.components.ButtonVariant
 import se.kodhast.ui.components.Confetti
 import se.kodhast.ui.components.ConfirmDialog
 import se.kodhast.ui.components.DateField
@@ -80,7 +81,7 @@ class OverlayScreenshotTest {
     fun `AppBottomSheet - ändra mängd`() = rule.captureScreenLightAndDark("AppBottomSheet_mangd") {
         AppBottomSheet("Promenad", onDismiss = {}, footer = {
             Spacer(Modifier.weight(1f))
-            AppButton("Spara", {})
+            AppButton("Spara", {}, variant = ButtonVariant.Primary)
         }) {
             QuantityStepper(45, {}, "minuter")
         }

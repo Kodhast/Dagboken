@@ -98,7 +98,7 @@ fun IllnessDetailScreen(
         EpisodeCard(detail)
         if (summary.ongoing && !detail.deleting) {
             FlowRow(horizontalArrangement = Arrangement.spacedBy(Spacing.s), verticalArrangement = Arrangement.spacedBy(Spacing.s)) {
-                AppButton(stringResource(R.string.checkin_new), { onCheckin(null) }, icon = R.drawable.ic_add)
+                AppButton(stringResource(R.string.checkin_new), { onCheckin(null) }, variant = ButtonVariant.Primary, icon = R.drawable.ic_add)
                 // SJ-4: en episod som börjar efter idag går inte att avsluta.
                 if (detail.canFinish) AppButton(stringResource(R.string.illness_finish), { onEvent(IllnessDetailEvent.Finish) }, variant = ButtonVariant.Secondary)
             }

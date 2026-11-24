@@ -46,7 +46,7 @@ class ComponentsTest {
     @Test
     fun `AppButton anropar onClick`() {
         var clicks = 0
-        rule.setContent { DagbokenTheme { AppButton("Spara", onClick = { clicks++ }) } }
+        rule.setContent { DagbokenTheme { AppButton("Spara", onClick = { clicks++ }, variant = ButtonVariant.Primary) } }
         rule.onNodeWithText("Spara").performClick()
         assertEquals(1, clicks)
     }
@@ -54,7 +54,7 @@ class ComponentsTest {
     @Test
     fun `AppButton som laddar är inaktiv och anropar inte onClick`() {
         var clicks = 0
-        rule.setContent { DagbokenTheme { AppButton("Loggar in …", onClick = { clicks++ }, loading = true) } }
+        rule.setContent { DagbokenTheme { AppButton("Loggar in …", onClick = { clicks++ }, loading = true, variant = ButtonVariant.Primary) } }
         rule.onNodeWithText("Loggar in …").assertIsNotEnabled().performClick()
         assertEquals(0, clicks)
     }
@@ -75,11 +75,11 @@ class ComponentsTest {
             Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background).padding(Spacing.l),
             verticalArrangement = Arrangement.spacedBy(Spacing.m)
         ) {
-            AppButton("Logga in med Google", {}, Modifier.fillMaxWidth(), icon = UiR.drawable.ic_login)
-            AppButton("Loggar in …", {}, Modifier.fillMaxWidth(), loading = true)
+            AppButton("Logga in med Google", {}, Modifier.fillMaxWidth(), icon = UiR.drawable.ic_login, variant = ButtonVariant.Primary)
+            AppButton("Loggar in …", {}, Modifier.fillMaxWidth(), loading = true, variant = ButtonVariant.Primary)
             AppButton("Lägg till", {}, variant = ButtonVariant.Secondary)
             AppButton("Avbryt", {}, variant = ButtonVariant.Text)
-            AppButton("Spara", {}, enabled = false)
+            AppButton("Spara", {}, enabled = false, variant = ButtonVariant.Primary)
         }
     }
 
@@ -99,7 +99,7 @@ class ComponentsTest {
                 icon = R.drawable.ic_book,
                 title = "Inget loggat än",
                 message = "Det du loggar med plusknappen hamnar här, dag för dag.",
-                action = { AppButton("Logga", {}, Modifier.fillMaxWidth()) }
+                action = { AppButton("Logga", {}, Modifier.fillMaxWidth(), variant = ButtonVariant.Primary) }
             )
         }
     }
@@ -113,7 +113,7 @@ class ComponentsTest {
                 message = "Installera den senaste versionen för att fortsätta.",
                 note = "Ingenting ändras förrän appen är uppdaterad.",
                 fullScreen = true,
-                action = { AppButton("Hämta senaste versionen", {}, Modifier.fillMaxWidth()) }
+                action = { AppButton("Hämta senaste versionen", {}, Modifier.fillMaxWidth(), variant = ButtonVariant.Primary) }
             )
         }
     }

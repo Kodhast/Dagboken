@@ -20,6 +20,7 @@ import org.robolectric.RobolectricTestRunner
 import se.kodhast.dagboken.ui.theme.DagbokenTheme
 import se.kodhast.ui.components.AppBottomSheet
 import se.kodhast.ui.components.AppButton
+import se.kodhast.ui.components.ButtonVariant
 import se.kodhast.ui.components.StepNavigation
 
 /**
@@ -143,7 +144,7 @@ class AppBottomSheetTest {
     fun `knappraden syns med långt innehåll`() {
         rule.setContent {
             DagbokenTheme {
-                AppBottomSheet("Promenad", onDismiss = {}, footer = { AppButton("Spara", {}) }) {
+                AppBottomSheet("Promenad", onDismiss = {}, footer = { AppButton("Spara", {}, variant = ButtonVariant.Primary) }) {
                     repeat(40) { Text("Rad $it") }
                 }
             }
