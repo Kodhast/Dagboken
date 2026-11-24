@@ -67,6 +67,8 @@ man mår dåligt – den ska vara stillsam, tydlig och aldrig stressa.
   **28 dp** upptill (`sheet`), rader 18 dp, fält 14 dp (DSN-3) – formerna är android-ui:s, samma i alla appar
   (Mats 2026-11-18); appen anger inga egna.
 - `Spacing`: `xs 4 · s 8 · m 12 · l 16 · xl 24 · xxl 32` dp – enda tillåtna avstånden.
+- **Komposition** – luftens nivåer, en primär handling per vy, fokuspunkt, hierarki och få val: skill
+  `android:designregler` (D-1–D-10, enda källan).
 - **Sidmarginal** `l` (16 dp) på varje skärm – ramarna delar den (`LocalEditScreenMargin`, satt i `DagbokenTheme`).
 - **Luftigare än ReseApoteket:** mer avstånd mellan kort (`l`) än inuti dem (`m`); ett kort per
   ämne hellre än täta listor.
