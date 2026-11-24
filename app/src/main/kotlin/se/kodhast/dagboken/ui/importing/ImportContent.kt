@@ -81,13 +81,13 @@ fun ImportStageContent(stage: ImportStage, onEvent: (ImportEvent) -> Unit, onPic
 
         is ImportStage.Writing -> {
             WritingCard(stringResource(R.string.import_writing_title), stage.before, stage.done)
-            Actions { AppButton(doneLabel, {}, Modifier.fillMaxWidth(), enabled = false) }
+            Actions { AppButton(doneLabel, {}, Modifier.fillMaxWidth(), variant = ButtonVariant.Primary, enabled = false) }
         }
 
         is ImportStage.Done -> {
             DoneCard(stringResource(R.string.import_done_title), stage.before, stage.after)
             Note(stringResource(R.string.import_done_note), R.drawable.ic_check, Tone.Positive)
-            Actions { AppButton(doneLabel, onDone, Modifier.fillMaxWidth()) }
+            Actions { AppButton(doneLabel, onDone, Modifier.fillMaxWidth(), variant = ButtonVariant.Primary) }
         }
 
         is ImportStage.Mismatch -> {
@@ -135,7 +135,7 @@ private fun Review(review: ImportStage.Review, onEvent: (ImportEvent) -> Unit) {
     }
     Note(replaces, R.drawable.ic_info, Tone.Neutral)
     Actions {
-        AppButton(stringResource(R.string.import_action), { onEvent(ImportEvent.Import) }, Modifier.fillMaxWidth(), enabled = review.canImport)
+        AppButton(stringResource(R.string.import_action), { onEvent(ImportEvent.Import) }, Modifier.fillMaxWidth(), variant = ButtonVariant.Primary, enabled = review.canImport)
         Cancel(onEvent)
     }
     if (review.confirming) {
