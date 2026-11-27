@@ -264,6 +264,7 @@ Versionen och raden nedan höjs och skrivs i funktions-PR:en; releasen görs via
 
 | Version | Innehåll |
 |---|---|
+| 4.24.2 | **Pluppen på avataren** betyder inloggad och ansluten och är samma gröna i alla Kodhäst-appar, inte längre Dagbokens egen gröna; utan nät en grå ihålig ring, utloggad ingen plupp (NAV-12). android-ui 4.0.0 → 5.1.0. |
 | 4.24.1 | **En primär knapp per vy** (android-ui 4.0.0, D-3): knapparna utan uttalad variant är tonade i stället för fyllda – Logga nu på en tillfällesrad, Ge åtkomst på Health Connect-kortet, Försök igen och Välj en annan fil i importen, och Hämta i Om. Klar, Importera och Ny incheckning är fyllda som förut. Inga beteendeändringar. android-ui 3.14.0 → 4.0.0. |
 | 4.24.0 | **Ny version finns** (NAV-13): en prick efter versionen i sidhuvudet när en nyare release finns, "Ny version X finns" under Om i kontomenyn och Hämta i Om. android-ui 3.12.0 → 3.14.0 (3.13.0: `SwipeToDelete` med frågan inbyggd, inget synligt ändrat). |
 | 4.23.3 | **android-ui 3.12.0**: tidsväljarens rullhjul visar talen i appens typsnitt med tabulära siffror och i storlekar som får plats (45 sp i mitten, 32 sp ovanför och under), och rubriken "Välj tid" har samma stil som övriga dialoger. Inga beteendeändringar. android-ui 3.11.1 → 3.12.0. |
