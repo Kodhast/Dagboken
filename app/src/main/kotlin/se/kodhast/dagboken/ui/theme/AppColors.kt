@@ -153,7 +153,6 @@ data class ExtendedColors(
         onToolbar = onToolbar,
         tones = tones,
         accents = AppColors.SWATCH_HEX.indices.map { AppColors.swatch(it) },
-        online = positiveTone.content,
         track = track,
         progressDone = ProgressDoneColors(doneFill, outline = sunTone.content)
     )
